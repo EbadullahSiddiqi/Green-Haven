@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#0a0a0a] text-white;
+  }
+}
+
+.diagonal-lines {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(37, 161, 89, 0.15),
+    rgba(37, 161, 89, 0.15) 1px,
+    transparent 1px,
+    transparent 50px
+  );
+  background-size: 141.42% 141.42%;
+  position: relative;
+}
+
+.diagonal-lines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(37, 161, 89, 0.15) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.diagonal-lines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(37, 161, 89, 0.1) 0%,
+    transparent 100%
+  );
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 10, 0.95) 0%,
+    rgba(16, 71, 41, 0.9) 100%
+  );
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-delayed {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+.glow {
+  position: relative;
+}
+
+.glow::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(45deg, #22c55e20, transparent);
+  filter: blur(5px);
+  z-index: -1;
+}
